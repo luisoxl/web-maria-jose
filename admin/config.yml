@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Dónde se guardan las imágenes que subas dentro de un artículo
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Vista previa desactivada (el diseño real está en la propia web, no aquí)
+publish_mode: simple
+
+collections:
+  - name: "articulos"
+    label: "Artículos de Interés"
+    label_singular: "Artículo"
+    folder: "content/articulos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: title
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - label: "Categoría"
+        name: "category"
+        widget: "select"
+        options: ["Extranjería", "Civil", "Laboral", "Mercantil", "Fiscal"]
+      - { label: "Fecha de publicación", name: "date", widget: "datetime", format: "YYYY-MM-DD", picker_utc: true }
+      - { label: "Resumen breve (aparece en la tarjeta)", name: "excerpt", widget: "text" }
+      - { label: "Contenido completo del artículo", name: "body", widget: "markdown" }

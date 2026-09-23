@@ -1,0 +1,7 @@
+[build]
+  command = "node build-articles.js"
+  publish = "."
+
+# Cada vez que el panel "Acceso Socios" guarda un artículo nuevo,
+# Netlify vuelve a ejecutar este build automáticamente y la web
+# se actualiza sola en segundos, sin que nadie tenga que tocar código.

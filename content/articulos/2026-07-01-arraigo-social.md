@@ -1,0 +1,19 @@
+---
+title: "Qué es el arraigo social y cómo saber si cumples los requisitos"
+category: "Extranjería"
+date: 2026-07-01
+excerpt: "Uno de los caminos más habituales para regularizar tu situación en España. Te explico de forma sencilla qué necesitas acreditar y los errores más comunes al solicitarlo."
+---
+El arraigo social es una de las vías más utilizadas para regularizar la situación de una persona extranjera que ya se encuentra en España, sin necesidad de salir del país para tramitarlo.
+
+## ¿Quién puede solicitarlo?
+
+De forma general, se exige acreditar una permanencia continuada en España durante un tiempo mínimo, carecer de antecedentes penales en España y en el país de origen, y disponer de un informe de arraigo o de una oferta o contrato de trabajo, según la modalidad.
+
+## Errores más comunes
+
+- Presentar el empadronamiento con periodos incompletos o interrumpidos.
+- No aportar el certificado de antecedentes penales correctamente apostillado.
+- Solicitar la modalidad equivocada para tu situación concreta.
+
+Cada caso es distinto, y un pequeño error en la documentación puede suponer meses de retraso o una denegación. Si tienes dudas sobre si cumples los requisitos, puedes escribirme y lo revisamos juntas.
