@@ -1857,8 +1857,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
   /* =====================================================================
      ACCESO SOCIOS — login real gestionado por Netlify Identity.
-     Al pulsar el enlace se abre la ventana de inicio de sesión; si el
-     login es correcto, se entra directamente al panel de artículos.
+     Al pulsar el enlace se abre la ventana de inicio de sesión.
+     IMPORTANTE: el redirigido a /admin solo debe pasar si el login
+     ocurre AHORA (recién logueado o acabando de confirmar el correo).
+     Si ya estabas logueado de antes y simplemente visitas la web,
+     esto NO debe llevarte a /admin — por eso el registro del evento
+     "login" va dentro de "init" y solo si todavía no había sesión.
      ===================================================================== */
   const accessLink = document.getElementById('link-acceso-socios');
   if (accessLink && window.netlifyIdentity) {
@@ -1866,8 +1870,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       e.preventDefault();
       netlifyIdentity.open();
     });
-    netlifyIdentity.on('login', () => {
-      window.location.href = 'admin/';
+
+    netlifyIdentity.on('init', (user) => {
+      if (!user) {
+        netlifyIdentity.on('login', () => {
+          window.location.href = 'admin/';
+        });
+      }
     });
   }
 </script>
