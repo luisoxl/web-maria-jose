@@ -1826,14 +1826,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     const banner = document.getElementById('new-article-banner');
     if (!banner) return;
 
-    const lastSeen = localStorage.getItem('mjjm_last_seen_article');
-    if (lastSeen === latest.slug) return;
+    // El aviso solo se muestra durante los 7 días siguientes a la fecha
+    // del artículo (ya sea publicación nueva o el día que se actualice
+    // su fecha en el panel). Pasada esa semana, deja de aparecer solo.
+    const articleDate = new Date(latest.date);
+    if (isNaN(articleDate.getTime())) return;
+    const DAYS_VISIBLE = 7;
+    const msSinceArticle = Date.now() - articleDate.getTime();
+    const daysSinceArticle = msSinceArticle / (1000 * 60 * 60 * 24);
+    if (daysSinceArticle < 0 || daysSinceArticle > DAYS_VISIBLE) return;
+
+    // El botón de cerrar solo lo oculta para esta visita (sessionStorage):
+    // si vuelves otro día dentro de esa semana, el aviso reaparece.
+    const dismissedSlug = sessionStorage.getItem('mjjm_dismissed_banner_slug');
+    if (dismissedSlug === latest.slug) return;
 
     banner.querySelector('.new-article-banner-text').textContent = `Nuevo artículo: "${latest.title}"`;
     banner.classList.add('visible');
 
     const dismiss = () => {
-      localStorage.setItem('mjjm_last_seen_article', latest.slug);
+      sessionStorage.setItem('mjjm_dismissed_banner_slug', latest.slug);
       banner.classList.remove('visible');
     };
     banner.querySelector('.new-article-banner-link').addEventListener('click', dismiss);
