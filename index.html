@@ -1869,27 +1869,42 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
   /* =====================================================================
      ACCESO SOCIOS — login real gestionado por Netlify Identity.
-     Al pulsar el enlace se abre la ventana de inicio de sesión.
-     IMPORTANTE: el redirigido a /admin solo debe pasar si el login
-     ocurre AHORA (recién logueado o acabando de confirmar el correo).
-     Si ya estabas logueado de antes y simplemente visitas la web,
-     esto NO debe llevarte a /admin — por eso el registro del evento
-     "login" va dentro de "init" y solo si todavía no había sesión.
+     - Si NO has iniciado sesión: el enlace abre la ventana de login, y
+       en cuanto entras (o confirmas tu correo) te lleva a /admin.
+     - Si YA tienes sesión iniciada: el enlace cambia de texto y te
+       lleva directamente a /admin al pulsarlo, sin volver a pedir nada.
      ===================================================================== */
   const accessLink = document.getElementById('link-acceso-socios');
   if (accessLink && window.netlifyIdentity) {
+    function refreshAccessLink(){
+      const user = netlifyIdentity.currentUser();
+      if (user) {
+        accessLink.textContent = '📝 Panel de Artículos';
+        accessLink.setAttribute('href', 'admin/');
+      } else {
+        accessLink.textContent = '🔒 Acceso Socios';
+        accessLink.setAttribute('href', '#');
+      }
+    }
+
     accessLink.addEventListener('click', (e) => {
+      if (netlifyIdentity.currentUser()) {
+        return; // ya logueada: que el enlace navegue normal a admin/
+      }
       e.preventDefault();
       netlifyIdentity.open();
     });
 
     netlifyIdentity.on('init', (user) => {
+      refreshAccessLink();
       if (!user) {
         netlifyIdentity.on('login', () => {
           window.location.href = 'admin/';
         });
       }
     });
+    netlifyIdentity.on('login', refreshAccessLink);
+    netlifyIdentity.on('logout', refreshAccessLink);
   }
 </script>
 
