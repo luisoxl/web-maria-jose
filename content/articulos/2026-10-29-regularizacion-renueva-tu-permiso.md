@@ -2,9 +2,9 @@
 title: "REGULARIZACION: RENUEVA TU PERMISO"
 category: Extranjería
 date: 2026-10-30
-excerpt: >-
-  
-  Llegado el vencimiento de tu permiso de residencia extraordinario, conoce los mecanismos que te permitirán continuar residiendo en España de forma regular.
+excerpt: Llegado el vencimiento de tu permiso de residencia extraordinario,
+  conoce los mecanismos que te permitirán continuar residiendo en España de
+  forma regular.
 ---
 ```
 
