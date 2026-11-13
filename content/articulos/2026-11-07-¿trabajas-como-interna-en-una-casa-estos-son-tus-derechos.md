@@ -4,11 +4,6 @@ category: Laboral
 date: 2026-11-08
 excerpt: >-
   
-
-
-
-
-
   Vivir en la casa donde trabajas no significa estar disponible las veinticuatro horas. Si eres una de las muchas mujeres extranjeras que trabajan como internas, conviene que sepas qué dice la ley.
 ---
 
@@ -17,7 +12,7 @@ Vivir en la casa donde trabajas no significa estar disponible las veinticuatro h
 
 
 
-1.-Tuscondiciones, por escrito y antes de empezar.
+1.-Tus condiciones, por escrito y antes de empezar.
 
 Desde el 5 de octubre de 2026 está en vigor el *Real Decreto 723/2026*, que también se aplica al empleo de hogar. Si la relación va a durar más de cuatro semanas, la familia tiene que entregarte por escrito, antes de tu primer día de trabajo, los elementos esenciales: salario desglosado, jornada y horario, vacaciones, periodo de prueba y cómo se pone fin al contrato, entre otros. En el caso delas internas debe constar además si hay salario en especie, las horas de presencia pactadas y cómo se pagan, y el régimen de pernoctas.
 
